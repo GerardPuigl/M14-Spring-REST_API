@@ -1,12 +1,14 @@
 package com.itacademy.CrudPictures.domain;
 
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -33,6 +35,11 @@ public class Shop {
 	@GeneratedValue
 	@Column(name="shop_creationdate")
 	private Date creationdate;
+	
+	//this mappedBy do reference to the shop variable name defined in Picture class by @ManyToOne
+	//not any element in MySQL columns
+	@OneToMany(mappedBy = "shopDTO") 
+	private Set<Picture> pictures;
 
 	public Shop() {
 	}

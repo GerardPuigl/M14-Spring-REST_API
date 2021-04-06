@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.itacademy.CrudPictures.domain.Shop;
 
 @RestController
-public class ControllerShops {
+public class ShopsController {
 
 	@PostMapping("/shops")
 	public Shop shopCreation() {

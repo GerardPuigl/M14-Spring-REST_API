@@ -17,7 +17,7 @@ import com.itacademy.CrudPictures.domain.Picture;
 
 @RestController
 @RequestMapping("/shop/{ID}")
-public class ControllerPictures {
+public class PicturesController {
 	
 	@PostMapping("/pictures")
 	public Picture addPicture(@Valid @RequestBody Picture employee, @PathVariable("id") int id) {
