@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="pictures")
 public class Picture {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="picutre_id")
@@ -35,4 +35,43 @@ public class Picture {
 	@GeneratedValue
 	@Column(name="picture_registrationdate")
 	private double registrationDate ;
+
+		public Picture() {
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public double getRegistrationDate() {
+		return registrationDate;
+	}
+
+
+
+
 }
