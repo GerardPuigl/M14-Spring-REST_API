@@ -1,5 +1,7 @@
 package com.itacademy.CrudPictures.domain;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +36,7 @@ public class Picture {
 	
 	@GeneratedValue
 	@Column(name="picture_registrationdate")
-	private double registrationDate ;
+	private Date registrationDate ;
 
 		public Picture() {
 	}
@@ -67,11 +69,7 @@ public class Picture {
 		return id;
 	}
 
-	public double getRegistrationDate() {
+	public Date getRegistrationDate() {
 		return registrationDate;
 	}
-
-
-
-
 }
