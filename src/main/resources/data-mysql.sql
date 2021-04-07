@@ -1,9 +1,9 @@
-INSERT IGNORE INTO `m14_WhiteCollar`.`shops` (`shops_id`,`shops_name`, `shops_capacity`) VALUES 
-(0,'Collars Itaca', 50),
-(1,'Collars Roma', 20);
+INSERT IGNORE INTO shops (shop_id,shop_name,shop_capacity) VALUES 
+(1,'Collars Itaca', 50),
+(2,'Collars Roma', 20);
 
 
-INSERT IGNORE INTO `m14_WhiteCollar`.`pictures` (picture_id,picture_author,picture_name,picture_price,shops_id) VALUES
+INSERT IGNORE INTO pictures (picture_id,picture_author,picture_name,picture_price,shop_id) VALUES
 (0,'Joan Gordi','Sun Flowers',50000.0,1),
 (1,'Gerard Puig','Storm',29000.0,1),
 (2,'Pere Masnou','River Bridge',25000.0,1),

@@ -20,7 +20,7 @@ public class Picture {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="picutre_id")
+	@Column(name="picture_id")
 	@NotNull
 	private int id;
 	

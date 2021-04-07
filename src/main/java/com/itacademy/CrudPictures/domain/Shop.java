@@ -1,6 +1,9 @@
 package com.itacademy.CrudPictures.domain;
 
-import java.sql.Date;
+
+
+
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,9 +13,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import com.sun.istack.NotNull;
+import org.hibernate.annotations.CreationTimestamp;
+
+
+
+
+
 
 @Entity
 @Table(name = "shops")
@@ -28,12 +39,12 @@ public class Shop {
 	@Column(name="shop_name")
 	private String name;
 	
-	@NotBlank
+	@NotNull
 	@Column(name="shop_capacity")
-	private int Capacity;
+	private int capacity;
 	
-	@GeneratedValue
-	@Column(name="shop_creationdate")
+	@CreationTimestamp
+	@Column(name="shop_creationdata",  columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date creationdate;
 	
 	//this mappedBy do reference to the shop variable name defined in Picture class by @ManyToOne
@@ -53,11 +64,11 @@ public class Shop {
 	}
 
 	public int getCapacity() {
-		return Capacity;
+		return capacity;
 	}
 
 	public void setCapacity(int capacity) {
-		Capacity = capacity;
+		this.capacity = capacity;
 	}
 
 	public int getId() {
