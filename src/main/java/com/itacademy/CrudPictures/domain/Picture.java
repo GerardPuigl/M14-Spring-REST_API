@@ -1,6 +1,6 @@
 package com.itacademy.CrudPictures.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,15 +13,16 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name="pictures")
 public class Picture {
 
 	@Id
+	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="picture_id")
-	@NotNull
 	private int id;
 	
 	@NotBlank
@@ -31,13 +32,13 @@ public class Picture {
 	@NotBlank
 	@Column(name="picture_name")
 	private String name;
-	
-	@NotBlank
+
+	@NotNull
 	@Column(name="picture_price")
 	private double price ;
-	
-	@GeneratedValue
-	@Column(name="picture_registrationdate")
+		
+	@CreationTimestamp
+	@Column(name="picture_registrationdate",  columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date registrationDate ;
 	
 	@ManyToOne
@@ -78,4 +79,14 @@ public class Picture {
 	public Date getRegistrationDate() {
 		return registrationDate;
 	}
+	
+	
+	public Shop getShopDTO() {
+		return shopDTO;
+	}
+
+	public void setShopDTO(Shop shopDTO) {
+		this.shopDTO = shopDTO;
+	}
+
 }

@@ -23,6 +23,10 @@ public class ShopServices {
 	public List<Shop> getAll() {
 		return shopReposity.findAll();
 	}
+	
+	public Shop getById(int id) {
+		return shopReposity.findById(id).get();
+	}
 
 	
 }
