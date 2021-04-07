@@ -1,5 +1,7 @@
 package com.itacademy.CrudPictures.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,10 @@ public class ShopServices {
 
 	public void add(@Valid Shop shop) {
 		shopReposity.save(shop);		
+	}
+
+	public List<Shop> getAll() {
+		return shopReposity.findAll();
 	}
 
 	

@@ -30,6 +30,6 @@ public class ShopsController {
 	
 	@GetMapping("/shops")
 	public List<Shop> allShops(){
-		return null;
+		return shopServices.getAll();
 	}
 }
