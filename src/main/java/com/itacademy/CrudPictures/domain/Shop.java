@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "shops")
 public class Shop {
@@ -39,6 +41,7 @@ public class Shop {
 	
 	//this mappedBy do reference to the shop variable name defined in Picture class by @ManyToOne
 	//not any element in MySQL columns
+	@JsonManagedReference
 	@OneToMany(mappedBy = "shopDTO") 
 	private Set<Picture> pictures;
 
@@ -67,5 +70,13 @@ public class Shop {
 
 	public Date getCreationdate() {
 		return creationdate;
+	}
+
+	public Set<Picture> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(Set<Picture> pictures) {
+		this.pictures = pictures;
 	}
 }

@@ -1,5 +1,7 @@
 package com.itacademy.CrudPictures.service;
 
+import java.util.Set;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,10 @@ public class PicturesService {
 		picture.setShopDTO(shopServices.getById(id));
 		pictureRepository.save(picture);
 		return picture;
+	}
+
+	public Set<Picture> getAll(int id) {
+		return shopServices.getById(id).getPictures();
 	}
 
 }
