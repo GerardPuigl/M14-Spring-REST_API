@@ -16,14 +16,17 @@ public class ShopServices {
 	@Autowired
 	ShopsRepository shopReposity;
 
+	//add new shop to repository
 	public void add(@Valid Shop shop) {
 		shopReposity.save(shop);		
 	}
 
+	//return a Shop List from repository
 	public List<Shop> getAll() {
 		return shopReposity.findAll();
 	}
 	
+	//find and return one Shop by Id
 	public Shop getById(int id) {
 		return shopReposity.findById(id).get();
 	}

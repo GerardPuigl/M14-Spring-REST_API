@@ -1,6 +1,6 @@
 INSERT IGNORE INTO shops (shop_id,shop_name,shop_capacity) VALUES 
 (1,'Collars Itaca', 50),
-(2,'Collars Roma', 20);
+(2,'Collars Roma', 6);
 
 
 INSERT IGNORE INTO pictures (picture_id,picture_author,picture_name,picture_price,shop_id) VALUES

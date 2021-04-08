@@ -15,10 +15,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="pictures")
+@JsonIgnoreProperties("shopDTO")
 public class Picture {
 
 	@Id
@@ -43,7 +44,6 @@ public class Picture {
 	@Column(name="picture_registrationdate",  columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date registrationDate ;
 	
-	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "shop_id")
 	private Shop shopDTO; 
@@ -83,8 +83,7 @@ public class Picture {
 		return registrationDate;
 	}
 	
-	
-	public Shop getShopDTO() {
+		public Shop getShopDTO() {
 		return shopDTO;
 	}
 
