@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Info Botiga</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+		integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+	<meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script language="javascript" type="text/javascript">
+    $(document).ready( function () {
+        $('#picturesTable').DataTable();
+    } );
+    </script>
+
+
+
+
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="main-section">
+			<div class="col-md-12">
+				<div class="row Header">
+					<div class="col-sm-8">
+						<H4 class="headertitle">CRUD Empleats</H4>
+						<h6>Exercici realitzat utilitzant: Spring Api Rest, Javascript, jquery i Bootstrap.</h6>
+					</div>
+					<div class="col-sm-4 my-auto text-right">
+						<button type="button" class="btn btn-primary add" data-toggle="modal" data-target="#modal"
+							onclick="newEmployee();">
+							<i class="bi bi-person-plus-fill icon" style="margin-right: 5px;"></i>
+							Nou Empleat</button>
+					</div>
+				</div>
+				<div class="col-sm-12 tableBody">
+					<table id="picturesTable" class="table table-hover table-striped">
+						<thead>
+							<tr>
+								<th style="width:4%" id="id">#</th>
+								<th style="width:28%">Nom</th>
+								<th style="width:28%">Càrreg</th>
+								<th style="width:28%">Salari</th>
+								<th style="width:12%">Accions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="pictures : ${pictures}">
+								<td th:text="${pictures.id}"></td>
+								<td th:text="${pictures.author}"></td>
+								<td th:text="${pictures.name}">carreg</td>
+								<td th:text="${pictures.price}"></td>
+								<td><button type="button" class="btn btn-primary add" data-toggle="modal"
+										data-target="#modal" onclick="newEmployee();">
+										Nou Empleat</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="#modaltitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modaltitle"><span id=formType>Afegir nou</span> empleat
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="EmployeeForm">
+						<div>
+							<input type="text" id="idEmployee" hidden="true">
+						</div>
+						<div class="input-group mt-3 mb-3">
+							<div class="input-group-prepend w-25">
+								<span class="input-group-text w-100">Nom</span>
+							</div>
+							<input class="form-control" type="text" id="name"
+								placeholder="Indrodueix el nom de l'empleat.">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend w-25">
+								<span class="input-group-text w-100">Càrreg</span>
+							</div>
+							<select class="form-control" id="job">
+								<option value="Default">Escull un càrreg</option>
+								<option value="Director_Projectes">Director de projectes</option>
+								<option value="Programador_Senior">Programador Senior</option>
+								<option value="Programador_Mid">Programador Mid-Level</option>
+								<option value="Programador_Junior">Programador Junior</option>
+								<option value="Administratiu">Administratiu</option>
+							</select>
+						</div>
+
+						<div class="modal-footer">
+							<button type="reset" class="btn  btn-secondary cancel"
+								data-dismiss="modal">Cancel·lar</button>
+							<input type="button" class="btn  btn-primary save" value="Afegir" id="action"
+								onclick="sendEmployee();">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

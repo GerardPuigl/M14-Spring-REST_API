@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Selector</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+    integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div th:each="shops : ${shops}" class="col-sm ">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <h4 th:text="${shops.name}" class="card-title"></h4>
+            <h6 th:text="'Capacitat: ' + ${shops.capacity}"></h6>
+            <div class="text-right">
+              <a type="button" class="btn btn-primary" th:href="@{/shopView(id=${shops.id})}">Entrar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm text-center">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body mx-auto">
+            <h4 class="card-title">Afegir una botiga nova</h4>
+            <button type="button" class="btn btn-success" >Crear una nova botiga</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
