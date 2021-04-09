@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itacademy.CrudPictures.domain.Picture;
+import com.itacademy.CrudPictures.domain.Shop;
 import com.itacademy.CrudPictures.exceptions.FullShopException;
 import com.itacademy.CrudPictures.persistence.PicturesRepository;
 
@@ -23,11 +24,13 @@ public class PicturesService {
 	//add picture to repository
 	public Picture add(@Valid Picture picture, int id){
 		
+		Shop shop = shopServices.getById(id);
+		
 		//check shop capacity
-		if(shopServices.getById(id).getCapacity() <= getAll(id).size()) {
+		if(shop.getCapacity() <= shop.getPopulation()) {
 			throw new FullShopException("Error: Botiga plena, no es pot afegir més quadres.");			
 		}
-		picture.setShopDTO(shopServices.getById(id));
+		picture.setShopDTO(shop);
 		pictureRepository.save(picture);
 		return picture;
 	}

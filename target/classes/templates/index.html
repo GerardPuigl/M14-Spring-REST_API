@@ -16,7 +16,7 @@
         <div class="card" style="width: 20rem;">
           <div class="card-body">
             <h4 th:text="${shops.name}" class="card-title"></h4>
-            <h6 th:text="'Capacitat: ' + ${shops.capacity}"></h6>
+            <h6 th:text="'Capacitat: ' + ${shops.population} + ' / ' + ${shops.capacity}"></h6>
             <div class="text-right">
               <a type="button" class="btn btn-primary" th:href="@{/shopView(id=${shops.id})}">Entrar</a>
             </div>
