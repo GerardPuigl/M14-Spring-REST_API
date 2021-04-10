@@ -27,7 +27,7 @@
 			<div class="col-md-12">
 				<div class="row Header">
 					<div class="col-sm-8">
-						<H4 class="headertitle">Pictures List</H4>
+						<H4 class="headertitle"  > : Llistat de quadres</H4>
 
 					</div>
 					<div class="col-sm-4 my-auto text-right">
@@ -52,7 +52,7 @@
 							<tr th:each="pictures : ${pictures}">
 								<td th:text="${pictures.id}"></td>
 								<td th:text="${pictures.author}"></td>
-								<td th:text="${pictures.name}">carreg</td>
+								<td th:text="${pictures.name}"></td>
 								<td th:text="${pictures.price}"></td>
 								<td><a role='button' class='btn btn-light btn-table' data-toggle='modal'
 										data-target='#modal'>

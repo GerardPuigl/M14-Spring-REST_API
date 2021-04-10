@@ -35,7 +35,7 @@ public class Shop {
 	
 	@NotNull
 	@Column(name="shop_capacity")
-	private int capacity;
+	private int capacity=10;
 	
 	@CreationTimestamp
 	@Column(name="shop_creationdata",  columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")

@@ -3,33 +3,88 @@
 
 <head>
   <title>Selector</title>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
     integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
   <meta charset="utf-8" />
+  <!--Custom Css-->
+  <link rel="stylesheet" type="text/css" href="flipCard.css">
 
 </head>
 
 <body>
   <div class="container">
     <div class="row">
-      <div th:each="shops : ${shops}" class="col-sm ">
-        <div class="card" style="width: 20rem;">
-          <div class="card-body">
-            <h4 th:text="${shops.name}" class="card-title"></h4>
-            <h6 th:text="'Capacitat: ' + ${shops.population} + ' / ' + ${shops.capacity}"></h6>
-            <div class="text-right">
-              <a type="button" class="btn btn-primary" th:href="@{/shopView(id=${shops.id})}">Entrar</a>
+
+      <!-- Shops Card -->
+
+      <div th:each="shops : ${shops}" class="col-sm-4 flip">
+        <label class="label">
+          <input type="checkbox" />
+          <div class="card flip-inner">
+            <div class="card-body flip-front">
+              <h2 th:text="${shops.name}" class="card-title"></h2>
+              <h6 th:text="'Capacitat: ' + ${shops.population} + ' / ' + ${shops.capacity}"></h6>
+              <div>
+                <a type="button" class="btn btn-primary" th:href="@{/shopView(id=${shops.id})}">Entrar</a>
+              </div>
+            </div>
+            <div class="card-body flip-back">
+              <form th:object="${Shop}" method="put" th:action="@{/shopView(id=${shops.id})}">
+
+                <div class="input-group mt-3 mb-3">
+                  <div class="input-group-prepend w-25">
+                    <span class="input-group-text w-100">Nom</span>
+                  </div>
+                  <input class="form-control" type="text" th:value="${shops.name}" th:name="*{name}"
+                    placeholder="Nom de la botiga." required>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                  <div class="input-group-prepend w-25">
+                    <span class="input-group-text w-100">Capacitat</span>
+                  </div>
+                  <input class="form-control" type="number" th:value="${shops.capacity}" th:name="*{capacity}" required>
+                </div>
+                <button type="submit" class="btn btn-delete">Eliminar</button>
+                <button type="submit" class="btn btn-warning">Actualizar</button>
+
+              </form>
             </div>
           </div>
-        </div>
+        </label>
       </div>
-      <div class="col-sm text-center">
-        <div class="card" style="width: 20rem;">
-          <div class="card-body mx-auto">
-            <h4 class="card-title">Afegir una botiga nova</h4>
-            <button type="button" class="btn btn-success" >Crear una nova botiga</button>
+
+      <!-- New Shop Card -->
+      <div class="col-sm-4 flip">
+        <label class="label">
+          <input type="checkbox" />
+          <div class="card flip-inner">
+            <div class="card-body flip-front">
+              <h2 class="card-title">Crear una nova botiga</h2>
+            </div>
+            <div class="card-body flip-back">
+              <form th:object="${Shop}" method="post" th:action="@{/shopView}">
+
+                <div class="input-group mt-3 mb-3">
+                  <div class="input-group-prepend w-25">
+                    <span class="input-group-text w-100">Nom</span>
+                  </div>
+                  <input class="form-control" type="text" th:field="*{name}" placeholder="Nom de la botiga." required>
+                </div>
+
+                <div class="input-group mt-3 mb-3">
+                  <div class="input-group-prepend w-25">
+                    <span class="input-group-text w-100">Capacitat</span>
+                  </div>
+                  <input class="form-control" type="number" th:field="*{capacity}" required>
+                </div>
+                <button type="submit" class="btn btn-success">Crear una nova botiga</button>
+
+              </form>
+            </div>
           </div>
-        </div>
+        </label>
       </div>
     </div>
   </div>
