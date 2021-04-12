@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,10 +41,11 @@ public class ViewController {
 		RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Picture[]> pictures = restTemplate.getForEntity("http://localhost:8080/shops/" + id + "/pictures", Picture[].class);
         model.addAttribute("pictures", pictures.getBody());
+        ResponseEntity<Shop> shop = restTemplate.getForEntity("http://localhost:8080/shops/" + id, Shop.class);
+        model.addAttribute("shop",shop.getBody());
 		return "shopView";
 	}
-	
-	
+		
 	//create new shop
 	@PostMapping("/shopView")
 	public String addShop(Model model,Shop shop) {
@@ -52,8 +54,14 @@ public class ViewController {
        
         return "redirect:/";
 	}
+		
+	//delete all pictures from shop
+	@GetMapping("/shopView/delete/{id}")
+	public String deletePictures(@PathVariable("id") int id, Model model) {
+		RestTemplate restTemplate = new RestTemplate();
+        restTemplate.delete("http://localhost:8080/shops/" + id + "/pictures");		
+        return "redirect:/shopView?id=" + id;
+	}
 	
 	
-	
-
 }
