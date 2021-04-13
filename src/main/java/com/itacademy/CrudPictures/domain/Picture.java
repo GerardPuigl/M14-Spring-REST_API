@@ -38,7 +38,7 @@ public class Picture {
 
 	@NotNull
 	@Column(name="picture_price")
-	private double price ;
+	private double price;
 		
 	@CreationTimestamp
 	@Column(name="picture_registrationdate",  columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -79,10 +79,18 @@ public class Picture {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Date getRegistrationDate() {
 		return registrationDate;
 	}
 	
+	public void setRegistrationDate(Date registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+
 		public Shop getShopDTO() {
 		return shopDTO;
 	}

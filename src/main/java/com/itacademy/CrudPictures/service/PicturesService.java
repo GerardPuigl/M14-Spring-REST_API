@@ -36,13 +36,30 @@ public class PicturesService {
 	}
 
 	//get a Set of pictures from a shop
-	public Set<Picture> getAll(int id) {
-		return shopServices.getById(id).getPictures();
+	public Set<Picture> getAll(int idShop) {
+		return shopServices.getById(idShop).getPictures();
 	}
 
 	//delete ALL pictures from a shop
-	public void deleteAll(int id) {
-		pictureRepository.deleteAll(getAll(id));;
+	public void deleteAllPictures(int idShop) {
+		pictureRepository.deleteAll(getAll(idShop));;
+	}
+
+	public void deleteById(int idPicture) {
+		pictureRepository.deleteById(idPicture);
+	}
+
+	public Picture getById(int idPicture) {
+		return pictureRepository.findById(idPicture).get();
+	}
+
+	public Picture updatePicture(int idPicture, Picture picture) {
+		Picture dbPicture = getById(idPicture);
+		dbPicture.setAuthor(picture.getAuthor());
+		dbPicture.setName(picture.getName());
+		dbPicture.setPrice(picture.getPrice());
+		pictureRepository.save(dbPicture);
+		return getById(idPicture);
 	}
 
 }

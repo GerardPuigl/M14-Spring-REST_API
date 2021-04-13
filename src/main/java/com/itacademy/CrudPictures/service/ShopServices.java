@@ -15,6 +15,9 @@ public class ShopServices {
 
 	@Autowired
 	ShopsRepository shopReposity;
+	
+	@Autowired
+	PicturesService picturesService;
 
 	//add new shop to repository
 	public void add(@Valid Shop shop) {
@@ -31,5 +34,19 @@ public class ShopServices {
 		return shopReposity.findById(id).get();
 	}
 
+	//update shop on repository
+	public Shop update(int idShop, @Valid Shop shop) {
+		Shop dbShop= getById(idShop);
+		dbShop.setName(shop.getName());
+		dbShop.setCapacity(shop.getCapacity());
+		shopReposity.save(dbShop);
+		return getById(idShop);
+	}
+
+	//delete shop
+	public void deleteShop(int idShop) {
+		picturesService.deleteAllPictures(idShop);
+		shopReposity.deleteById(idShop);
+	}
 	
 }
