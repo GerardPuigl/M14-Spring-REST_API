@@ -14,6 +14,7 @@ We have added the border property to demonstrate that the flip itself goes out o
 .flip {
     background-color: transparent;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    margin: 5%;
   }
   
   /* This container is needed to position the front and back side */
@@ -25,7 +26,7 @@ We have added the border property to demonstrate that the flip itself goes out o
     text-align: center;
     transition: transform 1.5s;
     transform-style: preserve-3d;
-    
+   
   }
 
   /*Option A: flip when click over*/
@@ -56,17 +57,21 @@ We have added the border property to demonstrate that the flip itself goes out o
     box-shadow: 5px;
   }
   
+
   /* Style the front side (fallback if image is missing) */
   .flip-front {
     /*border-radius: 5px;*/
     background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(201, 201, 201));
     color: rgb(52, 52, 53);
+    padding-top: 15%;
   }
   
   /* Style the back side */
   .flip-back {
- 
+
     background-color: rgb(50, 67, 111);
     color: white;
     transform: rotateY(180deg);
+    padding-top: 12%;
+
   }
