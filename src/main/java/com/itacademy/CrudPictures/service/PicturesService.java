@@ -28,7 +28,7 @@ public class PicturesService {
 		
 		//check shop capacity
 		if(shop.getCapacity() <= shop.getPopulation()) {
-			throw new FullShopException("Error: Botiga plena, no es pot afegir més quadres.");			
+			throw new FullShopException("La joyeria on vols posar el teu quadre és plena!");			
 		}
 		picture.setShopDTO(shop);
 		pictureRepository.save(picture);
