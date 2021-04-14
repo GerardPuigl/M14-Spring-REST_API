@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Info Botiga</title>
+	<title>Info Joyeria</title>
 	<!-- JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	
+
 	<!-- Boostrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -19,28 +20,31 @@
 			$('#picturesTable').DataTable();
 		});
 	</script>
-    <link rel="stylesheet" type="text/css" href="../static/general.css">
-    <link rel="stylesheet" type="text/css" href="../general.css">
+	<link rel="stylesheet" type="text/css" href="../general.css">
 </head>
 
 <body>
-    <div class="container">
-		<a type="button" class="btn btn-primary" href="/index">Home</a>
-		<div class="main-section">
+	<div class="container">
+
+		<div class="table-container">
 			<div class="col-md-12">
-				<div class="row Header">
+				<div class="col-sm-12 table-header">
 					<div class="col-sm-8">
-						<h4 class="headertitle" th:text="${shop.name +' : Llistat'}"> </h4>
+						<h4 class="headertitle" th:text="${shop.name} + ' ( Capacitat: ' + ${shop.population} + ' / ' + ${shop.capacity} + ' )'">Titol Joyeria : ( Capacitat 6 / 24 )
+						</h4>
+					</div>
+					<div class="col-sm-4 text-right">
+						<a type="button" class="btn btn-outline-primary" href="/index">Seleccionar una altra Joyeria</a>
 					</div>
 				</div>
 				<div class="col-sm-12 tableBody">
 					<table id="picturesTable" class="table table-hover table-striped">
 						<thead>
 							<tr>
-								<th style="width:4%" id="id">#</th>
-								<th style="width:28%">Autor</th>
-								<th style="width:28%">Nom</th>
-								<th style="width:28%">Preu</th>
+								<th style="width:5%">#</th>
+								<th style="width:25%">Autor</th>
+								<th style="width:38%">Nom</th>
+								<th style="width:20%">Preu</th>
 								<th style="width:12%">Accions</th>
 							</tr>
 						</thead>
@@ -52,14 +56,14 @@
 								<td th:text="${pictures.price}"></td>
 
 								<td>
-									<a role="button" class="tn btn-light btn-table" data-toggle="modal"
+									<a role="button" class="btn btn-outline-primary " data-toggle="modal"
 										th:attr="data-target='#editPictureModal'+${pictures.id}">
-										<i class="bi bi-pencil-square icon"></i></a>
+										<i class="bi bi-pencil-square"></i></a>
 
-									<a rolle="button" class="btn btn-danger text-dark"
+									<a rolle="button" class="btn btn-outline-danger"
 										th:href="@{'/shopTable/' + ${shop.id} + '/delete/' + ${pictures.id}}"
 										onclick="return confirm('Confirmeu que voleu eliminat aquest quadre')">
-										<i class="bi bi-person-dash-fill icon" style="color:white"></i>
+										<i class="bi bi-dash-square" ></i>
 									</a>
 									<!-- Modal Edit Pictures-->
 									<!-- It's better with JS but my purpose for this Academic Exercise is try to use Thymeleaf for all I can-->
@@ -86,7 +90,7 @@
 																<span class="input-group-text w-100">Autor</span>
 															</div>
 															<input class="form-control" type="text"
-																th:value="${pictures.author}" id="autor" name="author"
+																th:value="${pictures.author}" name="author"
 																required>
 														</div>
 														<div class="input-group mt-3 mb-3">
@@ -94,7 +98,7 @@
 																<span class="input-group-text w-100">Nom</span>
 															</div>
 															<input class="form-control" type="text"
-																th:value="${pictures.name}" id="name" name="name"
+																th:value="${pictures.name}"  name="name"
 																required>
 														</div>
 														<div class="input-group mt-3 mb-3">
@@ -102,7 +106,7 @@
 																<span class="input-group-text w-100">Preu</span>
 															</div>
 															<input class="form-control" type="text"
-																th:value="${pictures.price}" id="price" name="price"
+																th:value="${pictures.price}" name="price"
 																required>
 														</div>
 														<button type="button" class="btn btn-secondary"
@@ -119,13 +123,13 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="col-sm-12 my-auto text-right">
-					<button type="button" class="btn btn-danger add" data-toggle="modal"
+				<div class="col-sm-12 table-footer">
+					<button type="button" class="btn btn-outline-danger mr-3" data-toggle="modal"
 						data-target="#picturesDeleteModal">
-						<i class="bi bi-person-plus-fill icon" style="margin-right: 5px;"></i>
+						<i class="bi bi-dash-square" style="margin-right: 5px;"></i>
 						Eliminat tots els quadre</button>
-					<button type="button" class="btn btn-primary add" data-toggle="modal" data-target="#modal">
-						<i class="bi bi-person-plus-fill icon" style="margin-right: 5px;"></i>
+					<button type="button" class="btn btn-outline-primary mr-3 " data-toggle="modal" data-target="#modal">
+						<i class="bi bi-plus-square" style="margin-right: 5px;"></i>
 						Afegir nou Quadre</button>
 				</div>
 			</div>
@@ -149,14 +153,14 @@
 							<div class="input-group-prepend w-25">
 								<span class="input-group-text w-100">Autor</span>
 							</div>
-							<input class="form-control" type="text" th:field="*{author}" placeholder="Nom de la botiga."
+							<input class="form-control" type="text" th:field="*{author}" placeholder="Nom de la Joyeria."
 								required>
 						</div>
 						<div class="input-group mt-3 mb-3">
 							<div class="input-group-prepend w-25">
 								<span class="input-group-text w-100">Nom</span>
 							</div>
-							<input class="form-control" type="text" th:field="*{name}" placeholder="Nom de la botiga."
+							<input class="form-control" type="text" th:field="*{name}" placeholder="Nom de la Joyeria."
 								required>
 						</div>
 						<div class="input-group mt-3 mb-3">
@@ -186,16 +190,18 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					Vols eliminar <strong>TOTS ELS QUADRES</strong> de la botiga:
+					Vols eliminar <strong>TOTS ELS QUADRES</strong> de la Joyeria:
 					<h5 th:text="${shop.name}"></h5>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-					<button type="button" class="btn btn-danger" th:href="@{'/shopTable/' + ${shop.id} + '/delete/'}">Si</button>
+					<a type="button" class="btn btn-outline-danger"
+						th:href="@{'/shopTable/' + ${shop.id} + '/delete/'}">Si</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- Modal end -->
 </body>
+
 </html>

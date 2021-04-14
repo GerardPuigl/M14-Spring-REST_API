@@ -1,12 +1,17 @@
 
-.label {
-  width: 250px;
+.card {
+  width: 500px;
   height: 250px;
-  margin-top: 10%;
+  border: 0;
+  margin-top: 15%;
 }
 
-.card{
-  border: 0;
+.card-containter{
+  margin-top:5%;
+}
+
+.card-back-form{
+  width: 90%;
 }
 
 /* The flip card container - set the width and height to whatever you want. 
@@ -14,7 +19,6 @@ We have added the border property to demonstrate that the flip itself goes out o
 .flip {
     background-color: transparent;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    margin: 5%;
   }
   
   /* This container is needed to position the front and back side */
@@ -26,6 +30,7 @@ We have added the border property to demonstrate that the flip itself goes out o
     text-align: center;
     transition: transform 1.5s;
     transform-style: preserve-3d;
+    border-radius: 10px;
    
   }
 
@@ -52,19 +57,26 @@ We have added the border property to demonstrate that the flip itself goes out o
     height: 100%;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
-    /*border-radius: 5px;*/
+    border-radius: 10px;
     opacity: 0.9;
     box-shadow: 5px;
+    display: flex;
+    align-items: center;  /*Aligns vertically center */
+    justify-content: center; /*Aligns horizontally center */
   }
   
 
   /* Style the front side (fallback if image is missing) */
-  .flip-front {
-    /*border-radius: 5px;*/
-    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(201, 201, 201));
+  .flip-front{
+   background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(201, 201, 201));
     color: rgb(52, 52, 53);
-    padding-top: 15%;
   }
+
+  .new-shop{
+    background-image: linear-gradient(to bottom right, rgb(238, 238, 229), rgb(194, 173, 88));
+    color: rgb(52, 52, 53);
+   }
+   
   
   /* Style the back side */
   .flip-back {
@@ -72,6 +84,4 @@ We have added the border property to demonstrate that the flip itself goes out o
     background-color: rgb(50, 67, 111);
     color: white;
     transform: rotateY(180deg);
-    padding-top: 12%;
-
   }

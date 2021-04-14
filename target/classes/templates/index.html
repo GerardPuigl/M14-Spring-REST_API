@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  
+
   <title>M14-WhiteCollar</title>
 
   <!-- JQUERY -->
@@ -16,41 +16,51 @@
 
   <link rel="stylesheet" type="text/css" href="flipCard.css">
   <link rel="stylesheet" type="text/css" href="general.css">
-
 </head>
 
 <body>
+
+
+
   <div class="container">
-    <div class="row">
+    <div class="row mt-5 table-header">
+      <div class="col-sm-8 ml-5">
+        <h3 >Cadena de joyeria WhiteCollar</h3>
+        <h5>Exercici realitzat utilitzant: Spring Api Rest, Thymeleaf i Bootstrap.</h5>
+      </div>
+    </div>
+    <div class="row card-containter">
       <!-- Shops Card -->
       <div th:each="shop : ${shops}">
         <div class="col-sm-4 flip">
-          <label class="label">
+          <label class="card">
             <input type="checkbox" />
-            <div class="card flip-inner">
+            <div class="flip-inner">
               <!-- Card Front -->
               <div class="flip-front">
                 <div class="card-body">
-                  <h2 class="card-title align-center" th:text="${shop.name}"></h2>
-                  <h6 class="card-subtitle align-center" th:text="'Capacitat: ' + ${shop.population} + ' / ' + ${shop.capacity}"></h6>
-                  <div class="align-center">
-                    <a type="button" class="btn btn-primary" th:href="@{'/shopTable/' + ${shop.id}}">Entrar</a>
+                  <h2 th:text="${shop.name}">Títol Joyeria</h2>
+                  <h6 th:text="'Capacitat: ' + ${shop.population} + ' / ' + ${shop.capacity}">Capacitat: 3 / 25</h6>
+                  <div class="align-center mt-4">
+                    <a type="button" class="btn-lg btn-primary btn-front-card"
+                      th:href="@{'/shopTable/' + ${shop.id}}">Entrar</a>
                   </div>
                 </div>
-                <div>
-                  Click per editar
+                <div class="fixed-bottom mb-2">
+                  <i class="bi bi-arrow-clockwise"> Click per editar</i>
                 </div>
 
               </div>
               <!-- Card Back -->
               <div class="card-body flip-back">
-                <form th:object="${Shop}" method="post" th:action="@{'/shopTable/' + ${shop.id} + '/updateShop/'}">
+                <form class="card-back-form" th:object="${Shop}" method="post"
+                  th:action="@{'/shopTable/' + ${shop.id} + '/updateShop/'}">
                   <div class="input-group mt-3 mb-3">
                     <div class="input-group-prepend w-25">
                       <span class="input-group-text w-100">Nom</span>
                     </div>
                     <input class="form-control" type="text" th:value="${shop.name}" name="name"
-                      placeholder="Nom de la botiga." required>
+                      placeholder="Nom de la Joyeria." required>
                   </div>
                   <div class="input-group mt-3 mb-3">
                     <div class="input-group-prepend w-25">
@@ -93,19 +103,24 @@
       <!-- New Shop Card -->
       <div>
         <div class="col-sm-4 flip">
-          <label class="label">
+          <label class="card">
             <input type="checkbox" />
-            <div class="card flip-inner">
-              <div class="card-body flip-front">
-                <h2 class="card-title">Crear una nova botiga</h2>
+            <div class="flip-inner">
+              <!-- Card Front -->
+              <div class="flip-front new-shop">
+                <div class="card-body">
+                  <h2 class="card-title align-middle mt-3">Crear una nova joyeria</h2>
+                  <h1><i class="bi-plus-square"></i></h1>
+                </div>
               </div>
               <div class="card-body flip-back">
-                <form th:object="${Shop}" method="post" th:action="@{/shopTable}">
+                <form class="card-back-form" th:object="${Shop}" method="post" th:action="@{/shopTable}">
                   <div class="input-group mt-3 mb-3">
                     <div class="input-group-prepend w-25">
                       <span class="input-group-text w-100">Nom</span>
                     </div>
-                    <input class="form-control" type="text" th:field="*{name}" placeholder="Nom de la botiga." required>
+                    <input class="form-control" type="text" th:field="*{name}" placeholder="Nom de la joyeria."
+                      required>
                   </div>
                   <div class="input-group mt-3 mb-3">
                     <div class="input-group-prepend w-25">
@@ -113,15 +128,17 @@
                     </div>
                     <input class="form-control" type="number" th:field="*{capacity}" required>
                   </div>
-                  <button type="submit" class="btn btn-success">Crear una nova botiga</button>
+                  <button type="submit" class="btn btn-success">Crear una nova joyeria</button>
                 </form>
               </div>
             </div>
           </label>
         </div>
       </div>
+
     </div>
   </div>
+
 
 
 </body>
