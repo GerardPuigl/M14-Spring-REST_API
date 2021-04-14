@@ -18,12 +18,12 @@ public class WebController {
 	/*
 	 * Controller View
 	 * 
-	 * Done with RestTemplate to simulate and independent APP that request info to
-	 * the Rest API View side programmed with thymeleaf and html
+	 * Done with RestTemplate to simulate and independent APP that request info to the Rest API.
+	 * View side programmed with thymeleaf and html.
 	 * 
 	 */
 
-	// reidrec from Root
+	// redirect from Root
 	@RequestMapping("/")
 	public String redirectFromRoot(Model model) {
 		return "redirect:/index";
@@ -76,13 +76,6 @@ public class WebController {
 		return "redirect:/index";
 	}
 
-	// delete all pictures from shop
-	@GetMapping("/shopTable/{id}/delete/")
-	public String deletePictures(@PathVariable("id") int idShop, Model model) {
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete("http://localhost:8080/shops/" + idShop + "/pictures");
-		return "redirect:/shopTable/" + idShop;
-	}
 
 	// Post one picture
 	@PostMapping("/shopTable/{id}/addpicture/")
@@ -98,6 +91,14 @@ public class WebController {
 			Model model) {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.delete("http://localhost:8080/shops/" + idShop + "/pictures/" + idPictures);
+		return "redirect:/shopTable/" + idShop;
+	}
+	
+	// delete all pictures from shop
+	@GetMapping("/shopTable/{id}/delete/")
+	public String deletePictures(@PathVariable("id") int idShop, Model model) {
+		RestTemplate restTemplate = new RestTemplate();
+		restTemplate.delete("http://localhost:8080/shops/" + idShop + "/pictures");
 		return "redirect:/shopTable/" + idShop;
 	}
 

@@ -29,7 +29,7 @@ public class ShopServices {
 		return shopReposity.findAll();
 	}
 	
-	//find and return one Shop by Id
+	//find and return one Shop by Id from respository
 	public Shop getById(int id) {
 		return shopReposity.findById(id).get();
 	}
@@ -43,7 +43,7 @@ public class ShopServices {
 		return getById(idShop);
 	}
 
-	//delete shop
+	//delete shop on repository
 	public void deleteShop(int idShop) {
 		picturesService.deleteAllPictures(idShop);
 		shopReposity.deleteById(idShop);

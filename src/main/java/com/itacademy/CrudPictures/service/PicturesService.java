@@ -35,24 +35,27 @@ public class PicturesService {
 		return picture;
 	}
 
-	//get a Set of pictures from a shop
+	//get a Set of pictures from repository
 	public Set<Picture> getAll(int idShop) {
 		return shopServices.getById(idShop).getPictures();
 	}
 
-	//delete ALL pictures from a shop
+	//delete ALL pictures from repository
 	public void deleteAllPictures(int idShop) {
 		pictureRepository.deleteAll(getAll(idShop));;
 	}
 
+	//delete one picture on repository
 	public void deleteById(int idPicture) {
 		pictureRepository.deleteById(idPicture);
 	}
 
+	//return one picture from repository
 	public Picture getById(int idPicture) {
 		return pictureRepository.findById(idPicture).get();
 	}
 
+	//update one picture on repository
 	public Picture updatePicture(int idPicture, Picture picture) {
 		Picture dbPicture = getById(idPicture);
 		dbPicture.setAuthor(picture.getAuthor());

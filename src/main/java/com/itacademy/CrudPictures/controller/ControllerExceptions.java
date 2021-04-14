@@ -11,7 +11,7 @@ import com.itacademy.CrudPictures.exceptions.FullShopException;
 @RestControllerAdvice
 public class ControllerExceptions {
 
-	//Exception if store capacity is exceeded	
+	//take the exception throw in case the store capacity is exceeded and return message error
 	@ExceptionHandler(FullShopException.class)
 	@ResponseStatus(HttpStatus.INSUFFICIENT_STORAGE)  // 507
 	public String misMatchException(FullShopException e) {
