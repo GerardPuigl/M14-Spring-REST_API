@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -34,11 +35,14 @@ public class Shop {
 	
 	@NotNull
 	@Column(name="shop_capacity")
-	private int capacity;
+	private int capacity=10;
 	
 	@CreationTimestamp
 	@Column(name="shop_creationdata",  columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	private Date creationdate;
+
+	@Transient //parameter without column
+	private int population=0;
 	
 	//mappedBy do reference to the shop variable name defined in Picture class by @ManyToOne
 	//not to any element inside MySQL columns
@@ -79,4 +83,17 @@ public class Shop {
 	public void setPictures(Set<Picture> pictures) {
 		this.pictures = pictures;
 	}
+	
+	public int getPopulation() {
+		if(pictures==null) {
+			return population;
+		}
+		return pictures.size();
+	}
+	
+	public void setPopulation(int population) {
+		this.population=population;
+
+	}
+
 }

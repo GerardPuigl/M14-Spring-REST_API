@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -40,12 +41,33 @@ public class PicturesController {
 		return pictureService.getAll(id);
 	}
 	
+	//get one picture
+	@GetMapping("/picture/{idPicture}")
+	public Picture getOnePicuture(@PathVariable("idPicture") int idPicture) {
+		return pictureService.getById(idPicture);
+	}
+	
 	//delete ALL pictures from a one Shop
 	@DeleteMapping("/pictures")
 	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
-	public String deleteAll(@PathVariable("ID") int id) {
-		pictureService.deleteAll(id);		
+	public String deleteAll(@PathVariable("ID") int idShop) {
+		pictureService.deleteAllPictures(idShop);		
 		return "Tots els quadres han estat eliminats";
 		}
 	
+	//delete one picture
+	@DeleteMapping("/pictures/{idPicture}")
+	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
+	public String deleteOnePicutre(@PathVariable("idPicture") int idPicture) {
+		pictureService.deleteById(idPicture);	
+		return "El quadre amb id: " + idPicture + " s'ha eliminat correctament.";
+	}
+	
+	//update one picture
+	@PutMapping("/pictures/{idPicture}")
+	@ResponseStatus(HttpStatus.ACCEPTED)  // 202
+	public Picture updateEmployee(@Valid @RequestBody Picture picture, @PathVariable("idPicture") int idPicture) {
+		return pictureService.updatePicture(idPicture,picture);
+	}
+
 }
