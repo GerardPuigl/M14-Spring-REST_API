@@ -23,7 +23,7 @@ public class WebController {
 	 * 
 	 */
 	
-	String host = "http://localhost:8080";
+	String host = "http://localhost:8080/WhiteCollar";
 
 	// redirect from Root
 	@RequestMapping("/")
