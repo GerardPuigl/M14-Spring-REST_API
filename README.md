@@ -16,16 +16,16 @@
 
 ## Descripció
 
-Exercici per crear una aplicació amb Spring JPA per accés a diferents bases de dades amb varies taules relacionades entre elles.
-Projecte realitzat amb Spring i amb patrò MVC aplicat. S'ha volgut aprofundir en la utilització de Thymeleaf.
+Exercici per crear una aplicació amb Spring JPA per accés a diferents bases de dades amb vàries taules relacionades entre elles.
+Projecte realitzat amb Spring i amb patró MVC aplicat. S'ha volgut aprofundir en la utilització de Thymeleaf.
 
 Link: https://white-collar-it.herokuapp.com/index
 
 ### - Nivell 1 - (Rest API Spring)
 
-Realització d'una Rest API per fer peticions HTTP amb un CRUD (Create, Read, Update, Delete) al complet. Per això s'ha implementat un patró d'arquitectura MVC amb repositori en memoria.
+Realització d'una Rest API per fer peticions HTTP amb un CRUD (Create, Read, Update, Delete) al complet. Per això s'ha implementat un patró d'arquitectura MVC amb repositori en memòria.
 
-S'ha utilitzat Spring (Java) contruit amb Maven amb les implementacions:
+S'ha utilitzat Spring (Java) construït amb Maven amb les implementacions:
 - Spring Boot DevTools.
 - Spring Web.
 - Thymeleaf.
@@ -33,7 +33,7 @@ S'ha utilitzat Spring (Java) contruit amb Maven amb les implementacions:
 - Mysql database connector.
 - h2 database.
 
-Creació d'una web per una franquicia que vol vendre quadres de manera ilegal camuflat dins d'una botiga de collarets anomenada "white collar".
+Creació d'una web per una franquícia que vol vendre quadres de manera il·legal camuflat dins d'una botiga de collarets anomenada "white collar".
 
 La Rest API ha de permetre:
 - Crear botiga: li direm el nom i la capacitat (POST /shops/). 
@@ -48,7 +48,7 @@ Comprovació de peticions amb Postman.
 
 ### - Nivell 2 - (Rest Client Thymeleaf/HTML/CSS)
 
-Creació d'una web amb Thymeleaf/HTML/CSS per crear una web de gestio i creació de les botigues i una taula per cada una de les botigues per gestionar el seu stock. Les botigues tenen una capacitat màxima que quan es sobreprepassa llença una excepció que recondueix a una web d'error.
+Creació d'una web amb Thymeleaf/HTML/CSS per crear una web de gestió i creació de les botigues i una taula per cada una de les botigues per gestionar el seu stock. Les botigues tenen una capacitat màxima que quan es sobrepassa llença una excepció que recondueix a una web d'error.
 
 Tot i ser una sola aplicació s'ha volgut simular una petició a un servidor Rest Api extern i s'ha gestionat amb Spring Boot sobre plantilles thymeleaf.
 
@@ -60,7 +60,7 @@ En aquest nivell s'ha configurat el projecte per exportar un arxiu war i mitjan�
 
 ### - Heroku - (Pujada a un servidor al núvol)
 
-S'ha configutat el projecte per ser accessible de manera remota des del núvol:
+S'ha configurat el projecte per ser accessible de manera remota des del núvol:
 
 https://white-collar-it.herokuapp.com/index
 
