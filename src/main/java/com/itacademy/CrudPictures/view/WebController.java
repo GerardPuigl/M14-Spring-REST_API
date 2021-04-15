@@ -23,7 +23,7 @@ public class WebController {
 	 * 
 	 */
 	
-	String host = "http://localhost:8080";
+	String host = "https://white-collar-it.herokuapp.com/";
 
 	// redirect from Root
 	@RequestMapping("/")
