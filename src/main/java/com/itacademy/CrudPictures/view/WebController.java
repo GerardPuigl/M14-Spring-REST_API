@@ -22,6 +22,8 @@ public class WebController {
 	 * View side programmed with thymeleaf and html.
 	 * 
 	 */
+	
+	String host = "http://localhost:8080";
 
 	// redirect from Root
 	@RequestMapping("/")
@@ -33,7 +35,7 @@ public class WebController {
 	@RequestMapping("/index")
 	public String goIndex(Model model) {
 		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<Shop[]> shops = restTemplate.getForEntity("http://localhost:8080/shops", Shop[].class);
+		ResponseEntity<Shop[]> shops = restTemplate.getForEntity(host + "/shops", Shop[].class);
 		model.addAttribute("shops", shops.getBody());
 		model.addAttribute("Shop", new Shop());
 		return "index";
@@ -43,7 +45,7 @@ public class WebController {
 	@PostMapping("/shopTable")
 	public String addShop(Model model, Shop shop) {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForEntity("http://localhost:8080/shops", shop, Shop.class);
+		restTemplate.postForEntity(host + "/shops", shop, Shop.class);
 		return "redirect:/index";
 	}
 
@@ -52,10 +54,10 @@ public class WebController {
 	public String openShop(@PathVariable("id") int id, Model model) {
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<Picture[]> pictures = restTemplate
-				.getForEntity("http://localhost:8080/shops/" + id + "/pictures", Picture[].class);
+				.getForEntity(host + "/shops/" + id + "/pictures", Picture[].class);
 		model.addAttribute("pictures", pictures.getBody());
 		model.addAttribute("Picture", new Picture());
-		ResponseEntity<Shop> shop = restTemplate.getForEntity("http://localhost:8080/shops/" + id, Shop.class);
+		ResponseEntity<Shop> shop = restTemplate.getForEntity(host + "/shops/" + id, Shop.class);
 		model.addAttribute("shop", shop.getBody());
 		return "shopTable";
 	}
@@ -64,7 +66,7 @@ public class WebController {
 	@PostMapping("/shopTable/{id}/updateShop/")
 	public String updateShop(@PathVariable("id") int idShop, Shop shop, Model model) {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.put("http://localhost:8080/shops/" + idShop, shop);
+		restTemplate.put(host + "/shops/" + idShop, shop);
 		return "redirect:/index";
 	}
 
@@ -72,7 +74,7 @@ public class WebController {
 	@GetMapping("/shopTable/{id}/deleteshop/")
 	public String deleteshop(@PathVariable("id") int idShop, Model model) {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete("http://localhost:8080/shops/" + idShop);
+		restTemplate.delete(host + "/shops/" + idShop);
 		return "redirect:/index";
 	}
 
@@ -81,7 +83,7 @@ public class WebController {
 	@PostMapping("/shopTable/{id}/addpicture/")
 	public String addPicture(@PathVariable("id") int idShop, Model model, Picture picture) {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.postForEntity("http://localhost:8080/shops/" + idShop + "/pictures/", picture, Picture.class);
+		restTemplate.postForEntity(host + "/shops/" + idShop + "/pictures/", picture, Picture.class);
 		return "redirect:/shopTable/" + idShop;
 	}
 
@@ -90,7 +92,7 @@ public class WebController {
 	public String deletePictures(@PathVariable("idShop") int idShop, @PathVariable("idPicture") int idPictures,
 			Model model) {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete("http://localhost:8080/shops/" + idShop + "/pictures/" + idPictures);
+		restTemplate.delete(host + "/shops/" + idShop + "/pictures/" + idPictures);
 		return "redirect:/shopTable/" + idShop;
 	}
 	
@@ -98,7 +100,7 @@ public class WebController {
 	@GetMapping("/shopTable/{id}/delete/")
 	public String deletePictures(@PathVariable("id") int idShop, Model model) {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.delete("http://localhost:8080/shops/" + idShop + "/pictures");
+		restTemplate.delete(host + "/shops/" + idShop + "/pictures");
 		return "redirect:/shopTable/" + idShop;
 	}
 
@@ -107,7 +109,7 @@ public class WebController {
 	public String updateOnePicture(@PathVariable("idShop") int idShop, @PathVariable("idPicture") int idPictures,
 			Model model, Picture picture) {
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.put("http://localhost:8080/shops/" + idShop + "/pictures/" + idPictures, picture);
+		restTemplate.put(host + "/shops/" + idShop + "/pictures/" + idPictures, picture);
 		return "redirect:/shopTable/" + idShop;
 	}
 }

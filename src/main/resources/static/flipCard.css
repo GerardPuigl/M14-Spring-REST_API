@@ -1,18 +1,12 @@
 
 .card {
-  width: 500px;
+  /*min-width:500px;*/
   height: 250px;
   border: 0;
-  margin-top: 15%;
+  margin-top: 10%;
+  background-color: transparent;
 }
 
-.card-containter{
-  margin-top:5%;
-}
-
-.card-back-form{
-  width: 90%;
-}
 
 /* The flip card container - set the width and height to whatever you want. 
 We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -31,7 +25,6 @@ We have added the border property to demonstrate that the flip itself goes out o
     transition: transform 1.5s;
     transform-style: preserve-3d;
     border-radius: 10px;
-   
   }
 
   /*Option A: flip when click over*/
@@ -58,29 +51,28 @@ We have added the border property to demonstrate that the flip itself goes out o
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
     border-radius: 10px;
-    opacity: 0.9;
     box-shadow: 5px;
     display: flex;
     align-items: center;  /*Aligns vertically center */
     justify-content: center; /*Aligns horizontally center */
+    border: 0.5px;
+    border-color: rgb(161, 147, 89);
+    border-style:solid;
   }
-  
 
   /* Style the front side (fallback if image is missing) */
   .flip-front{
-   background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(201, 201, 201));
+   background-image: linear-gradient(to bottom right, rgba(255, 255, 255,0.8), rgb(201, 201, 201));
     color: rgb(52, 52, 53);
   }
 
   .new-shop{
-    background-image: linear-gradient(to bottom right, rgb(238, 238, 229), rgb(194, 173, 88));
+    background-image: linear-gradient(to bottom right, rgba(238, 238, 229, 0.8), rgb(194, 173, 88));
     color: rgb(52, 52, 53);
    }
-   
   
   /* Style the back side */
   .flip-back {
-
     background-color: rgb(50, 67, 111);
     color: white;
     transform: rotateY(180deg);

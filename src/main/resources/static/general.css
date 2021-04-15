@@ -1,7 +1,20 @@
+
 html{
     height: 100%;
+    width: 100%;
 }
 
+.header{
+  display: flex;
+  padding-top: 5px;
+  padding-bottom:5px;
+  color: rgb(52, 52, 52);
+  background-color:rgb(223, 212, 166);
+}
+
+.gray-letter {
+  color: rgb(52, 52, 52);
+}
 .btn-front-card{
   background-color: rgb(194, 173, 88);
   color: black;
@@ -10,7 +23,7 @@ html{
 body::after {
   content: "";
   background: url(background.jpg);
-  opacity: 0.15;
+  opacity: 0.35;
   top: 0;
   left: 0;
   bottom: 0;
@@ -40,26 +53,28 @@ body::after {
 
 /* Table*/
 .table-container{
-  margin:auto;
+
   margin-top: 5%;
   background-color:rgba(255, 255, 255, 0.8);
 }
 
 .table-header{
   display: flex;
-  padding: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   color: black;
   background-color:rgb(232, 229, 216);
 }
 .tableBody{
   padding-top: 5%;
   padding-bottom:5%;
+  margin:0px;
 }
 
 .table-footer{
-  
   text-align: right;
-  padding: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   color: black;
   background-color:rgb(232, 229, 216);
 }
@@ -81,7 +96,7 @@ body::after {
 }
 
 .table-striped tbody tr:nth-of-type(odd){
-  background-color: rgba(0, 0, 0, 0.10);
+  background-color: rgb(240, 240, 240);
 }
 
 .table-striped tbody tr:nth-of-type(even){
