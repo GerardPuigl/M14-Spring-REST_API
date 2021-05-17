@@ -6,11 +6,11 @@ html{
 
 .header{
   display: flex;
-  padding-top: 5px;
-  padding-bottom:5px;
+  padding-top: 10px;
+  padding-bottom:10px;
   color: rgb(52, 52, 52);
   background-color:rgb(223, 212, 166);
-}
+  }
 
 .gray-letter {
   color: rgb(52, 52, 52);
