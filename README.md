@@ -1,4 +1,4 @@
-## Exercici Spring Rest API & Rest Client (M14)
+## Spring Rest API & Client with MYSQL (M14)
 
 <p align="right">
   <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/spring-long.svg" title="spring-long" alt="spring-long" height="35px"/>
@@ -14,12 +14,26 @@
   <img src="https://github.com/GerardPuigl/TechnologyStackIcons/blob/main/Logos/visual-studio-code.svg" title="visual-studio-code" alt="visual-studio-code" height="35px"/>
 </p>
 
-## Descripció
+## Introduction
 
-Exercici per crear una aplicació amb Spring JPA per accés a diferents bases de dades amb vàries taules relacionades entre elles.
-Projecte realitzat amb Spring i amb patró MVC aplicat. S'ha volgut aprofundir en la utilització de Thymeleaf.
+Rest API & Client programmed with Spring boot & Spring Data JPA to access different databases with several tables. MVC pattern applied.
+
+View done with Thymeleaf, HTML & CSS with the library Bootstrap.
 
 Link: https://white-collar-it.herokuapp.com/index
+
+<p align="center">
+
+  <img src="https://github.com/gerardpuigl/M14-Spring-REST_API_and_CLIENT/blob/main/Screenshot%20Tomcat/03_Manage_Store.jpg" title="Store Manager" alt="Store Manager" />
+  <br>
+  <img src="https://github.com/gerardpuigl/M14-Spring-REST_API_and_CLIENT/blob/main/Screenshot%20Tomcat/04_Manage_shop_products.jpg" title="Store products Manager" alt="Store products Manager" />
+  <br>
+  <img src="https://github.com/gerardpuigl/M14-Spring-REST_API_and_CLIENT/blob/main/Screenshot%20Tomcat/05_Exception_handler.jpg" title="Exception handler" alt="Exception handler" /></p>
+
+## Exercise Description [in Catalan]
+
+Exercici per crear una aplicació amb Spring boot & Spring per accés a diferents bases de dades amb vàries taules relacionades entre elles.
+Projecte realitzat amb Spring i amb patró MVC aplicat. S'ha volgut aprofundir en la utilització de Thymeleaf.
 
 ### - Nivell 1 - (Rest API Spring)
 
